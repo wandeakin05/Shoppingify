@@ -3,7 +3,7 @@
 #
 # Examples:
 #
-user = User.all.first
+user = User.create!(email: "mckentsteve95@gmail.com", password: "1234567", username: "mckent05")
 
 drink = Category.create!(
     name: 'beverages and drinks',
