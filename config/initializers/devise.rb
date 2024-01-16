@@ -10,7 +10,7 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.jwt do |jwt|
-    jwt.secret = 'cc9e85af58eac758dc84bd5eb05e009693892f016ca430fb9fad594854c6f7c26537a549b497d5e05379acb204fbd2e4f089ff40f845ffbf23b0c7fec0887e83'
+    jwt.secret = 'b4b1f2893e91c00225e349b93269595bd3af8395dc131f740f5d4364f11226b3501250153c9cbc98e6a057eb64ff5b9f8aad905a1910ab8d90f867c3faeba3fec0598a'
     jwt.dispatch_requests = [
       ['POST', %r{^/sign_in$}]
     ]
