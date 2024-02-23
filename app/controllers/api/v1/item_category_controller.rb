@@ -1,15 +1,14 @@
 class Api::V1::ItemCategoryController < ApplicationController
-  def index
-    all_item_categories = ItemCategory.all.group_by { |item_cat| item_cat.category.name}
-    all_item_categories = all_item_categories.keys.map do |key|
+ def index
+    @category_with_items = Category.includes(:items).all
+    @all_category_items= @category_with_items.map do |category|
       {
-        category: key, items: all_item_categories[key].map {|smell| smell.item.as_json(only: %i[name id measurement_unit])
+        category: category.name,
+        items: category.items.as_json(only: %i[name id measurement_unit])
       }
-    }
-
     end
     render json: {
-      data: all_item_categories,
+      data: @all_category_items,
       status: 200
     }, status: :ok
   end
